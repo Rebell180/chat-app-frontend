@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    position: relative;
+    list-style: none;
+    overflow: hidden;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: darkslategray;
+    font-size: clamp(16px, 2dvw, 30px);
+}
+
+h1, h2, h3 {
+    // width: 100%;
+    // height: 100%;
+}
+
+h1 {
+    font-size: clamp(32px, 5dvw, 48px);
+}
+
+h2 {
+    font-size: clamp(20px, 4dvw, 32px);
+}
+
+h3 {
+    font-size: clamp(18px, 1.75dvw, 24px);
+}
+
+p, 
+textarea, 
+li,
+input, 
+span, 
+label,
+button, 
+a {
+    font-size: clamp(16px, 1dvw, 20px);
+}
+
+button,
+li,
+a {
+    cursor: pointer; 
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+}

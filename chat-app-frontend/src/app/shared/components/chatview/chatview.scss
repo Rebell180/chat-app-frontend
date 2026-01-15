@@ -1,0 +1,73 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .section-chat {
+        width: 75dvw;
+        height: 80dvh;
+
+        .chat-presenter-container {
+            width: 100%;
+            height: 80%;
+            background-color: rgb(20, 12, 71, 0.4);
+            border: 1px solid rgba(0,0,0,0.2);
+            overflow-y: auto;
+
+            ul {
+                width: 100%;
+                height: 100%;
+
+                li {
+                    width: 100%;
+                    
+                    span {
+                        color: rgb(220, 226, 133);
+                        
+                        strong {
+                            font-weight: 800;
+                            font-size: clamp(18px, 20px, 24px);
+                        }
+                    }
+                    p {
+                        color: rgb(192, 192, 192);
+                        font-weight: 800;;
+                        font-size: clamp(16px, 20px, 24px);
+                    }
+                }
+            }
+        }
+
+        .form-send-message {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            
+            .form-group {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                padding: 1rem 0;
+
+                .input-label {
+                    display: inline-block;
+                    width: 200px;
+                    color: white;
+                    font-weight: 800;
+                    font-size: clamp(18px, 2dvw, 24px);
+                }
+
+                .input-name {
+                    width: calc(50% - 20rem);
+                }
+
+                .input-message {
+                    width: calc(100% - 20rem);
+                }
+
+            }
+        }
+
+    }
+}

@@ -1,0 +1,17 @@
+header {
+    width: 100dvw;
+    height: 10dvh;
+    background-color: rgba($color: black, $alpha: 0.3);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.4),
+                0 2px 5px rgba(0, 0, 0, 0.06);
+
+    h1 {
+        color: white;
+    }
+}

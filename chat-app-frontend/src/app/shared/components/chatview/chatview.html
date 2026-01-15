@@ -1,16 +1,28 @@
-<ol>
-    @for (item of chats(); track $index) {
+<section class="content section-chat">
 
-      <li id="message-container-{{ $index }}">
-        <span id="message-author-{{ $index }}">{{item.name}} :</span>
-        <p id="message-{{ $index }}">{{item.message}}</p>
-      </li>
-    }
-  </ol>
-  <div id="">
-    <span>Name: </span>
-    <input type="text" name="name" id="input-name" [value]="newChat().name" (input)="updateName($event)">
-    <span>Message: </span>
-    <input type="text" name="message" id="input-message" [value]="newChat().message" (input)="updateMessage($event)">
-    <button type="submit" (click)="sendMessage()">Senden</button>
+  <div class="chat-presenter-container">
+    <ul>
+      @for (item of chats(); track $index) {
+        <li id="message-container-{{ $index }}">
+          <span id="message-author-{{ $index }}"><strong>{{item.name}}</strong> am {{item.createdAt}}:</span>
+          <p id="message-{{ $index }}">{{item.message}}</p>
+        </li>
+        }
+    </ul>
   </div>
+  <form class="form-send-message">
+    <div class="form-group">
+      <label class="input-label" for="name">Name: </label>
+      <input class="input-name" type="text" id="name" [value]="newChat().name" (input)="updateName($event)" required/>
+    </div>
+
+    <div class="form-group">
+      <label class="input-label" for="message">Message: </label>
+      <textarea class="input-message" id="message" rows="5" [value]="newChat().message" (input)="updateMessage($event)" required ></textarea>
+    </div>
+
+    <button type="submit" (click)="sendMessage($event)">Senden</button>
+  </form>
+</section>
+
+

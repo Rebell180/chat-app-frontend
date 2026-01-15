@@ -17,24 +17,13 @@ export class ChatService {
         { initialValue: [] }
     );
 
-
     constructor(private http: HttpClient) { 
     }
 
     postMessage(newChat: Chat) {
-      // TODO Try Catch
-      this.http.post('http://localhost:8000/api/chat/', {
+      return this.http.post('http://localhost:8000/api/chat/', {
         name: newChat.name,
         message: newChat.message
-      }).subscribe(response => {
-        console.log(response);
       });
     }
-
-
-
-
-
-
-
 }

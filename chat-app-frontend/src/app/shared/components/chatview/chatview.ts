@@ -15,11 +15,18 @@ export class Chatview {
   protected cs: ChatService = inject(ChatService);
   readonly chats: Signal<Chat[]> = this.cs.chats;
 
-
-
-  sendMessage(): void {
+  sendMessage(event?: Event): void {
+    if (event) event.preventDefault();
     console.log("sende " + this.newChat().name + " mit der Nachricht: " + this.newChat().message);
-    this.cs.postMessage(this.newChat());
+    this.cs.postMessage(this.newChat()).subscribe({
+      next: (response) => {
+        console.log('Erfolgreich gesendet:', response);
+        this.newChat.set(new Chat());
+      },
+      error: (err) => {
+        console.error('Fehler beim Senden:', err);
+      }
+    });
   }
 
   updateName(event: Event) {
