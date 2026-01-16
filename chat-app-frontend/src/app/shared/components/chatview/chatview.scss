@@ -1,8 +1,15 @@
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+
+
+
 :host {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     .section-chat {
         width: 75dvw;
         height: 80dvh;
@@ -11,7 +18,7 @@
             width: 100%;
             height: 80%;
             background-color: rgb(20, 12, 71, 0.4);
-            border: 1px solid rgba(0,0,0,0.2);
+            border: 1px solid rgba(0, 0, 0, 0.2);
             overflow-y: auto;
 
             ul {
@@ -20,18 +27,20 @@
 
                 li {
                     width: 100%;
-                    
+
                     span {
                         color: rgb(220, 226, 133);
-                        
+
                         strong {
                             font-weight: 800;
                             font-size: clamp(18px, 20px, 24px);
                         }
                     }
+
                     p {
                         color: rgb(192, 192, 192);
-                        font-weight: 800;;
+                        font-weight: 800;
+                        ;
                         font-size: clamp(16px, 20px, 24px);
                     }
                 }
@@ -40,34 +49,104 @@
 
         .form-send-message {
             width: 100%;
-            height: 20%;
+            height: 15dvh;
             display: flex;
-            flex-direction: column;
-            
-            .form-group {
+            justify-content: space-between;
+
+            .form-field-container {
                 width: 100%;
+                height: 100%;
                 display: flex;
-                align-items: center;
-                padding: 1rem 0;
+                justify-content: space-around;
+                align-items: start;
 
-                .input-label {
-                    display: inline-block;
-                    width: 200px;
-                    color: white;
-                    font-weight: 800;
-                    font-size: clamp(18px, 2dvw, 24px);
+                .form__group {
+                    position: relative;
+                    padding: 15px 0 0;
+                    margin-top: 10px;
+                    width: 100%;
+                    
+                    .input__field {
+                        font-family: inherit;
+                        width: 100%;
+                        border: 0;
+                        border-bottom: 2px solid $gray;
+                        outline: 0;
+                        font-size: 18px;
+                        color: $white;
+                        padding: 7px 0 0;
+                        background: transparent;
+                        transition: border-color 0.2s;
+                        resize: none;
+                        
+                        &::placeholder {
+                            color: transparent;
+                        }
+                        
+                        &:placeholder-shown~.input__label {
+                            font-size: 18px;
+                            cursor: text;
+                            top: 20px;
+                        }
+                        
+                        &:focus {
+                            ~.input__label {
+                                position: absolute;
+                                top: 0;
+                                display: block;
+                                transition: 0.2s;
+                                font-size: 18px;
+                                color: $primary;
+                                font-weight: 700;
+                            }
+                            
+                            padding-bottom: 6px;
+                            font-weight: 700;
+                            border-width: 3px;
+                            border-image: linear-gradient(to right, $primary, $secondary);
+                            border-image-slice: 1;
+                        }
+
+                        &:required,
+                        &:invalid {
+                            box-shadow: none;
+                        }
+                    }
+                    
+
+                    .input__label {
+                        position: absolute;
+                        top: 0;
+                        display: block;
+                        transition: 0.2s;
+                        font-size: 18px;
+                        color: $gray;
+                    }
+
+                    .field-message {
+                        margin-top: 4px;
+                    }
                 }
 
-                .input-name {
-                    width: calc(50% - 20rem);
+                .group-name {
+                    width: 30%;
                 }
 
-                .input-message {
-                    width: calc(100% - 20rem);
+                .group-message {
+                    width: 60%;
+                    
                 }
+
 
             }
-        }
 
+            button {
+                width: 15rem;
+                height: 4.8rem;
+                border-radius: 8px;
+                margin: 4px;
+            }
+
+        }
     }
 }

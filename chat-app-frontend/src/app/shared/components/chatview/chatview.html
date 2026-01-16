@@ -11,17 +11,18 @@
     </ul>
   </div>
   <form class="form-send-message">
-    <div class="form-group">
-      <label class="input-label" for="name">Name: </label>
-      <input class="input-name" type="text" id="name" [value]="newChat().name" (input)="updateName($event)" required/>
+    <div class="form-field-container">
+      <div class="form__group field group-name">
+        <input class="input__field field-name" type="text" id="name" placeholder="Name" [value]="newChat().name" (input)="updateName($event)" required/>
+        <label class="input__label" for="name">Name: </label>
+      </div>
+      
+      <div class="form__group field group-message">
+        <textarea class="input__field field-message" id="message" placeholder="Message" rows="1" [value]="newChat().message" (input)="updateMessage($event)" required ></textarea>
+        <label class="input__label" for="message">Message: </label>
+      </div>
     </div>
-
-    <div class="form-group">
-      <label class="input-label" for="message">Message: </label>
-      <textarea class="input-message" id="message" rows="5" [value]="newChat().message" (input)="updateMessage($event)" required ></textarea>
-    </div>
-
-    <button type="submit" (click)="sendMessage($event)">Senden</button>
+    <button type="submit" (click)="sendMessage($event)">Send</button>
   </form>
 </section>
 
